@@ -3,9 +3,9 @@ package com.sage.neilwilkinson.rxtalk
 import io.reactivex.Observable
 
 /**
- * Basics of Rx.
+ * `E03Basics` of Rx.
  */
-class Basics {
+class E03Basics {
     private val namesObservable = Observable.just("Alan", "Brian", "Carl", "Dave", "Eric")
 
     fun one() {

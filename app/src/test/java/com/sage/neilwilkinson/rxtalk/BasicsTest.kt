@@ -8,11 +8,11 @@ import org.junit.Test
 class BasicsTest {
     @Test
     fun one() {
-        Basics().one()
+        E03Basics().one()
     }
 
     @Test
     fun two() {
-        Basics().two()
+        E03Basics().two()
     }
 }

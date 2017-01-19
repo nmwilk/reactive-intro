@@ -8,11 +8,11 @@ import org.junit.Test
 class PushPullSimpleComparisonTest {
     @Test
     fun sync() {
-        PushPullSimpleComparison().doSomethingUsingPull()
+        E02PushPullSimpleComparison().doSomethingUsingPull()
     }
 
     @Test
     fun async() {
-        PushPullSimpleComparison().doSomethingUsingPush()
+        E02PushPullSimpleComparison().doSomethingUsingPush()
     }
 }

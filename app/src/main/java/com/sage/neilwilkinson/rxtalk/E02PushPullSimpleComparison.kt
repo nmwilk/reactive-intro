@@ -5,7 +5,7 @@ import io.reactivex.Observable
 /**
  * Compare typical sync programming with async.
  */
-class PushPullSimpleComparison {
+class E02PushPullSimpleComparison {
 
     private val nameList = listOf("Alan", "Brian", "Carl", "Dave", "Eric")
 

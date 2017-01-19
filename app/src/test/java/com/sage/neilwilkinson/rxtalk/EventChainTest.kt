@@ -11,5 +11,8 @@ class EventChainTest {
         val button = Button()
 
         EventChain().connectButton(button)
+                .subscribe { println(it) }
+
+        button.click()
     }
 }

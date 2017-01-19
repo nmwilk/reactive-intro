@@ -13,10 +13,10 @@ class EventChain {
 
     fun connectButton(button: Button): Observable<PushPullApiComparison.Result> {
         val api = RxApi()
-        val datastore = RxDataStore()
+        val datastore = RxDatabase()
         return ButtonClickObservable(button)
                 .flatMap {
-                    Observable.zip(api.getTransactions(), api.getCategories(), datastore.getAccounts(),
+                    Observable.zip(api.getTransactions(), api.getCategories(), datastore.loadAccounts(),
                     Function3<List<Transaction>, List<Category>, List<Account>, PushPullApiComparison.Result> {
                         transactions, categories, accounts ->
                         PushPullApiComparison.Result(accounts, categories, transactions)

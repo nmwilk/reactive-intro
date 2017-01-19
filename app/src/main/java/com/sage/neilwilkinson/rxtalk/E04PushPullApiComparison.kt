@@ -74,6 +74,7 @@ class PushPullApiComparison {
                 allAccounts = accounts
                 checkComplete()
             }
+
         })
         api.getCategories(object : Api.Callback<List<Category>> {
 
@@ -81,6 +82,7 @@ class PushPullApiComparison {
                 allCategories = categories
                 checkComplete()
             }
+
         })
 
         api.getTransactions(object : Api.Callback<List<Transaction>> {
@@ -89,6 +91,7 @@ class PushPullApiComparison {
                 allTransactions = transactions
                 checkComplete()
             }
+
         })
     }
 
@@ -121,7 +124,10 @@ class PushPullApiComparison {
                 Function3<List<Account>, List<Category>, List<Transaction>, Result> {
                     accounts, categories, transactions ->
                     Result(accounts, categories, transactions)
-                }).subscribe { result -> println(result) }
+                }).subscribe({ result -> println(result) },
+                { /* error */ },
+                { /* complete */ }
+        )
     }
 
 
