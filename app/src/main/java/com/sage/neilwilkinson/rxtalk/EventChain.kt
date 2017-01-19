@@ -38,7 +38,7 @@ class Button {
     }
 }
 
-class ButtonClickObservable(val button: Button) : Observable<Any>() {
+private class ButtonClickObservable(val button: Button) : Observable<Any>() {
     override fun subscribeActual(observer: Observer<in Any>) {
         val listener = RxListener(button, observer)
         observer.onSubscribe(listener)
