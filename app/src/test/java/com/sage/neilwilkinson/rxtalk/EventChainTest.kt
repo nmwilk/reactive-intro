@@ -10,6 +10,6 @@ class EventChainTest {
     fun click() {
         val button = Button()
 
-        val buttonObservable = EventChain().connectButton(button)
+        EventChain().connectButton(button)
     }
 }
