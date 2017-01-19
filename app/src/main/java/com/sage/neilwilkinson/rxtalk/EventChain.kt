@@ -7,7 +7,7 @@ import io.reactivex.functions.Function3
 
 
 /**
- * Created by neil.wilkinson on 19/01/2017.
+ * Click, Db, and Api Observable chain.
  */
 class EventChain {
 

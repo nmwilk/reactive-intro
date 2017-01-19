@@ -7,7 +7,7 @@ import java.util.*
 import kotlin.collections.find
 
 /**
- * Compare typical sync programming with async.
+ * Async code using an API and DB.
  */
 class PushApiDb {
 

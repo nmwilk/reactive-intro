@@ -1,7 +1,7 @@
 package com.sage.neilwilkinson.rxtalk
 
 /**
- * Created by neil.wilkinson on 18/01/2017.
+ * Entities used in the demo code.
  */
 data class Account(val id: String, val name: String = "")
 

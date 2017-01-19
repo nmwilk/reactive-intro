@@ -3,7 +3,7 @@ package com.sage.neilwilkinson.rxtalk
 import io.reactivex.Observable
 
 /**
- * Created by neil.wilkinson on 19/01/2017.
+ * Basics of Rx.
  */
 class Basics {
     private val namesObservable = Observable.just("Alan", "Brian", "Carl", "Dave", "Eric")

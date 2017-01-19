@@ -4,7 +4,7 @@ import io.reactivex.Observable
 import io.reactivex.functions.Function3
 
 /**
- * Compare typical sync programming with async.
+ * Compare typical sync programming with async with respect to a remote API.
  */
 class PushPullApiComparison {
 

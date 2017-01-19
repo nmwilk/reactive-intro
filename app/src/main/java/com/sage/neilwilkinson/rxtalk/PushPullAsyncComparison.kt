@@ -3,7 +3,7 @@ package com.sage.neilwilkinson.rxtalk
 import io.reactivex.Observable
 
 /**
- * Compare typical async programming with pull and push.
+ * Compare typical async programming with pull and push when using async calls.
  */
 class PushPullAsyncComparison {
 
