@@ -11,7 +11,7 @@ class PushPullApiComparison {
 
 
 
-    // Traditional
+    // Traditional serial
     fun syncDataPull(pullSyncCallback: PullSyncCallback) {
         val api = Api()
 
@@ -39,6 +39,64 @@ class PushPullApiComparison {
 
     data class Result(val accounts: List<Account>, val categories: List<Category>, val transactions: List<Transaction>)
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    var allAccounts: List<Account>? = null
+    var allTransactions: List<Transaction>? = null
+    var allCategories: List<Category>? = null
+    var callback: PullSyncCallback? = null
+
+    // Traditional parallel
+    fun syncDataPullParallel(pullSyncCallback: PullSyncCallback) {
+        callback = pullSyncCallback
+        val api = Api()
+
+        api.getAccounts(object : Api.Callback<List<Account>> {
+
+            override fun success(accounts: List<Account>) {
+                allAccounts = accounts
+                checkComplete()
+            }
+        })
+        api.getCategories(object : Api.Callback<List<Category>> {
+
+            override fun success(categories: List<Category>) {
+                allCategories = categories
+                checkComplete()
+            }
+        })
+
+        api.getTransactions(object : Api.Callback<List<Transaction>> {
+
+            override fun success(transactions: List<Transaction>) {
+                allTransactions = transactions
+                checkComplete()
+            }
+        })
+    }
+
+    fun checkComplete() {
+        if (allTransactions != null && allAccounts != null && allCategories != null) {
+            callback?.complete(Result(allAccounts!!, allCategories!!, allTransactions!!))
+        }
+    }
 
 
 
@@ -148,19 +206,20 @@ open class Api {
 
 // Rx API
 
+// Note that these should be wrapped in a defer to not execute immediately.
+
 class RxApi {
     val api = Api()
 
     fun getAccounts(): Observable<List<Account>> {
-        return Observable.create ({
+        return Observable.create {
             api.getAccounts(object : Api.Callback<List<Account>> {
                 override fun success(result: List<Account>) {
                     it.onNext(result)
                     it.onComplete()
                 }
             })
-
-        })
+        }
     }
 
     fun getCategories(): Observable<List<Category>> {
@@ -171,7 +230,6 @@ class RxApi {
                     it.onComplete()
                 }
             })
-
         })
     }
 

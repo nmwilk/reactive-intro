@@ -16,6 +16,15 @@ class PushPullApiComparisonTest {
     }
 
     @Test
+    fun syncParallel() {
+        PushPullApiComparison().syncDataPullParallel(object : PushPullApiComparison.PullSyncCallback {
+            override fun complete(result: PushPullApiComparison.Result) {
+                println(result)
+            }
+        })
+    }
+
+    @Test
     fun async() {
         PushPullApiComparison().syncDataPush()
     }

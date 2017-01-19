@@ -46,6 +46,15 @@ class Basics {
         namesObservable
                 .filter { name -> name.contains('a', true) }
                 .map { nameContainingAnA -> nameContainingAnA.toUpperCase() }
-                .subscribe { upperCaseNameContainingAnA -> println(upperCaseNameContainingAnA)}
+                .subscribe(
+                        {
+                            upperCaseNameContainingAnA -> println("next: $upperCaseNameContainingAnA")
+                        },
+                        {
+                            println("error")
+                        },
+                        {
+                            println("complete")
+                        })
     }
 }
