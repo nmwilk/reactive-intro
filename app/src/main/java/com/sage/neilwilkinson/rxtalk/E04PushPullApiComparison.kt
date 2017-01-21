@@ -212,8 +212,6 @@ open class Api {
 
 // Rx API
 
-// Note that these should be wrapped in a defer to not execute immediately.
-
 class RxApi {
     val api = Api()
 
